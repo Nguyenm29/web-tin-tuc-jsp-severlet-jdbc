@@ -1,0 +1,26 @@
+package com.laptrinhjavaeb.dervice.impl;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import com.laptrinhjavaweb.dao.impl.newDAO;
+import com.laptrinhjavaweb.model.newModel;
+import com.laptrinhjavaweb.service.INewService;
+
+public class newService implements INewService {
+	@Inject 
+	private newDAO newDAO;
+	
+	@Override
+	public List<newModel> findByCategoryId(Long categoryID) {
+		// TODO Auto-generated method stub
+		return newDAO.findByIdCategory(categoryID);
+	}
+	
+	@Override
+	@Override
+	public newModel save(newModel news) {
+		return null;
+	}
+}

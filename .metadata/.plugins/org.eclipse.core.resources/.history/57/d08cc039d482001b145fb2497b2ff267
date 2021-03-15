@@ -1,0 +1,71 @@
+package com.laptrinhjavaweb.dao.impl;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.laptrinhjavaweb.dao.ICategoryDAO;
+import com.laptrinhjavaweb.model.categoryModel;
+
+public class categoryDAO implements ICategoryDAO {
+	public Connection getConnection() {
+		try {
+            Class.forName("com.mysql.jdbc.Driver");
+//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/newseverlet", "root", "19691969");
+//            return connection;
+            String url = "jdbc:mysql://localhost:3306/newseverlet";
+            String user = "root";
+            String password = "19691969";
+            return DriverManager.getConnection(url, user, password);
+		} catch (ClassNotFoundException | SQLException e) {.g
+			return null;
+		}
+	}
+	@Override
+	public List<categoryModel> findAll(){
+		// TODO Auto-generated method stub
+		 List<categoryModel> result = new ArrayList<>();
+		 String sql =  "SELECT * FROM category";
+		 Connection connection = getConnection();
+		 PreparedStatement statement = null;
+		 ResultSet resultSet = null;
+		 if (connection != null) {
+			try {
+				statement = connection.prepareStatement(sql);
+				resultSet = statement.executeQuery();
+				while (resultSet.next()) {
+					categoryModel category = new categoryModel();
+					category.setId(resultSet.getLong("id"));
+					category.setName(resultSet.getString("code"));
+					category.setCode(resultSet.getString("name"));					
+					result.add(category);
+					System.out.println(category.toString());
+				}
+				return result;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				return null;
+			} finally {
+				try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				} catch (Exception e) {
+					return null;
+				}
+			}
+		}
+		 return null;
+	}
+
+}

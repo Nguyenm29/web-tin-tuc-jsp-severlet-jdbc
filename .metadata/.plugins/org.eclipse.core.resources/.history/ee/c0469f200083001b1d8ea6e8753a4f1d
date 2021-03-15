@@ -1,0 +1,23 @@
+package com.laptrinhjavaweb.dao.impl;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.laptrinhjavaweb.dao.genericDAO;
+
+public class abstractDAO<T> implements genericDAO<T> {
+	public Connection getConnection() {
+		try {
+            Class.forName("com.mysql.jdbc.Driver");
+//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/newseverlet", "root", "19691969");
+//            return connection;
+            String url = "jdbc:mysql://localhost:3306/newseverlet";
+            String user = "root";
+            String password = "19691969";
+            return DriverManager.getConnection(url, user, password);
+		} catch (ClassNotFoundException | SQLException e) {
+			return null;
+		}
+	}
+}

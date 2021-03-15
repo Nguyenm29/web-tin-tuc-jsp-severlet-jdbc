@@ -1,0 +1,8 @@
+127.0.0.1 - - [08/Mar/2021:03:28:29 +0700] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:03:28:31 +0700] "GET /new-jdbc-3-3-2020/ HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:03:28:31 +0700] "GET /new-jdbc-3-3-2020/trang-chu;jsessionid=5CE7F337AB5682952C435EDF39E6AE25 HTTP/1.1" 200 8516
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:03:28:31 +0700] "GET /new-jdbc-3-3-2020/template/web/css/style.css HTTP/1.1" 200 198
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:03:28:31 +0700] "GET /new-jdbc-3-3-2020/template/web/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 160392
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:03:28:31 +0700] "GET /new-jdbc-3-3-2020/template/web/jquery/jquery.min.js HTTP/1.1" 200 89476
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:03:28:31 +0700] "GET /new-jdbc-3-3-2020/template/web/bootstrap/js/bootstrap.bundle.min.js HTTP/1.1" 200 84152
+0:0:0:0:0:0:0:1 - - [08/Mar/2021:03:28:32 +0700] "GET /favicon.ico HTTP/1.1" 404 1005

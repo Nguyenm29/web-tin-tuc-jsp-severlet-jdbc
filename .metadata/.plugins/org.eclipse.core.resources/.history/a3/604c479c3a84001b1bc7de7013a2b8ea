@@ -1,0 +1,12 @@
+package com.laptrinhjavaweb.controller.admin.api;
+
+import javax.servlet.http.HttpServlet;
+
+public class newAPI extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9049627631482806812L;
+	
+}

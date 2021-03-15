@@ -1,0 +1,7 @@
+package com.laptrinhjavaeb.dervice.impl;
+
+import com.laptrinhjavaweb.service.INewService;
+
+public class newService implements INewService {
+
+}
