@@ -1,0 +1,5 @@
+package com.laptrinhjavaeb.service.impl;
+
+public class UserService {
+
+}

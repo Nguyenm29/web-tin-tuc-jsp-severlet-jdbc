@@ -1,0 +1,55 @@
+package com.laptrinhjavaweb.controller.admin;
+
+import java.io.IOException;
+
+import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.laptrinhjavaweb.constain.systemConstain;
+import com.laptrinhjavaweb.model.newModel;
+import com.laptrinhjavaweb.service.INewService;
+import com.laptrinhjavaweb.ultils.FormUlti;
+
+@WebServlet(urlPatterns = {"/admin-new"})
+public class NewController extends HttpServlet {
+	@Inject
+	INewService newservice;
+	private static final long serialVersionUID = 2686801510274002166L;
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		newModel model = FormUlti.toModel(newModel.class, req);
+		newModel model = new newModel();
+		String pageStr = req.getParameter("page");
+		String maxPageItemStr = req.getParameter("maxPageItem");
+		if (pageStr != null) {
+			model.setPage(Integer.parseInt(pageStr));
+		} else {
+			model.setPage(1);
+		}
+		if (maxPageItemStr != null) { 	
+			model.setMaxPageItem(Integer.parseInt(maxPageItemStr));
+		}
+		else {
+			model.setMaxPageItem(2);
+		}
+		Integer offset = (model.getPage() - 1)*model.getMaxPageItem();
+		model.setListResult(newservice.findAll(offset, model.getMaxPageItem(), model.getSortName(), model.getSortBy()));
+		model.setTotalItem(newservice.getTotalItem());
+		model.setTotalPage((int) Math.ceil((double) model.getTotalItem() / model.getMaxPageItem()));
+		req.setAttribute(systemConstain.MODEL, model);
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/views/admin/new/list.jsp");
+		requestDispatcher.forward(req, resp);
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doPost(req, resp);
+	}
+
+}

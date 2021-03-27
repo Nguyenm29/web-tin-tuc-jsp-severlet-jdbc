@@ -1,7 +1,0 @@
-package com.laptrinhjavaweb.controller.web;
-
-public class tesst {
-	public static void name() {
-		System.out.println("Helli");
-	}
-}

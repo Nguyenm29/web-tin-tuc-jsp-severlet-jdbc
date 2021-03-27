@@ -1,0 +1,17 @@
+1616313579157	Encapsulate field 'page'
+1616313638027	Encapsulate field 'maxPageItem'
+1616313673434	Encapsulate field 'totalPage'
+1616426327656	Encapsulate field 'totalItem'
+1616601226315	Encapsulate field 'sorter'
+1616681964378	Rename type 'UserDAo'
+1616682100687	Rename package 'com.laptrinhjavaeb.service.impl'
+1616682884771	Encapsulate field 'role'
+1616743299542	Rename resource 'message.properties'
+1616743309547	Rename resource 'message.db.properties'
+1616744659696	Rename type 'AuthenticatonFilter'
+1616746298577	Rename type 'AuthorticatonFilter'
+1616749658629	Delete element
+1616749884032	Delete element
+1616745888172	Encapsulate field 'context'
+1616807793780	Encapsulate field 'categoryCode'
+1616807924617	Encapsulate field 'type'

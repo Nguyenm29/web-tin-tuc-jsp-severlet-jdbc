@@ -1,0 +1,54 @@
+package com.laptrinhjavaweb.controller.web;
+
+import java.io.IOException;
+import java.util.ResourceBundle;
+
+import javax.inject.Inject;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.laptrinhjavaweb.service.IUserService;
+import com.laptrinhjavaweb.service.iCategoryService;
+
+public class HomeController extends HttpServlet{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4899523825119044283L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2686801510274002166L;
+	@Inject 
+	private iCategoryService categoryService;
+	@Inject
+	private IUserService userervice;
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String action = req.getParameter("action");
+		if (action != null && action.equals("login")) {
+			String alert = req.getParameter("alert");
+			String message = req.getParameter("message");
+			if (message != null && alert != null) {
+				req.setAttribute("message", resourceBundle.getString(message));
+				req.setAttribute("alert", alert);
+			}
+			RequestDispatcher rd = req.getRequestDispatcher("/views/login.jsp");
+			rd.forward(req, resp);
+		} else if (action != null && AbstractInjector) {
+			
+		}
+		super.doGet(req, resp);
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.doPost(req, resp);
+	}
+}

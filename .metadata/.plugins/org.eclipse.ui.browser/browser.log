@@ -14,3 +14,18 @@ Mar 13, 2021 05:00:20.956 NEW SESSION
 Mar 13, 2021 05:00:20.957 [21332:21344:0313/050020.950:ERROR:device_event_log_impl.cc(211)] [05:00:20.950] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
 Mar 13, 2021 05:00:21.14 [21332:21344:0313/050020.951:ERROR:device_event_log_impl.cc(211)] [05:00:20.951] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
 Mar 13, 2021 05:00:21.39 [21332:21344:0313/050020.953:ERROR:device_event_log_impl.cc(211)] [05:00:20.953] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+
+Mar 26, 2021 14:34:25.598 NEW SESSION
+Mar 26, 2021 14:34:25.598 [12488:10908:0326/143425.592:ERROR:device_event_log_impl.cc(214)] [14:34:25.591] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Mar 26, 2021 14:34:25.651 [12488:10908:0326/143425.593:ERROR:device_event_log_impl.cc(214)] [14:34:25.593] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Mar 26, 2021 14:34:25.683 [12488:10908:0326/143425.595:ERROR:device_event_log_impl.cc(214)] [14:34:25.595] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+
+Mar 26, 2021 16:40:25.385 NEW SESSION
+Mar 26, 2021 16:40:25.385 [4092:7184:0326/164025.384:ERROR:device_event_log_impl.cc(214)] [16:40:25.384] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Mar 26, 2021 16:40:25.391 [4092:7184:0326/164025.384:ERROR:device_event_log_impl.cc(214)] [16:40:25.385] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Mar 26, 2021 16:40:25.398 [4092:7184:0326/164025.384:ERROR:device_event_log_impl.cc(214)] [16:40:25.385] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+
+Mar 26, 2021 13:00:10.69 NEW SESSION
+Mar 26, 2021 13:00:10.69 [10156:10004:0326/130010.065:ERROR:device_event_log_impl.cc(214)] [13:00:10.065] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Mar 26, 2021 13:00:10.95 [10156:10004:0326/130010.067:ERROR:device_event_log_impl.cc(214)] [13:00:10.066] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Mar 26, 2021 13:00:10.118 [10156:10004:0326/130010.067:ERROR:device_event_log_impl.cc(214)] [13:00:10.066] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)

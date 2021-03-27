@@ -1,0 +1,151 @@
+package com.laptrinhjavaweb.dao.impl;
+
+import java.util.List;
+
+import com.laptrinhjavaweb.dao.INewDAO;
+import com.laptrinhjavaweb.mapper.newMapper;
+import com.laptrinhjavaweb.model.newModel;
+import com.laptrinhjavaweb.paging.Pageble;
+
+public class newDAO extends abstractDAO<newModel> implements INewDAO {
+	@Override
+	public List<newModel> findByIdCategory(Long categoryId) {
+		String sql = "SELECT * FROM news WHERE categoryid = ?";
+//		// TODO Auto-generated method stub
+//		List<newModel> result = new ArrayList<>();
+//		String sql = "SELECT * FROM news WHERE categoryid = ?";
+//		Connection connection = getConnection();
+//		PreparedStatement statement = null;
+//		ResultSet resultSet = null;
+//		if (connection != null) {
+//			try {
+//			statement = connection.prepareStatement(sql);
+//			statement.setLong(1, categoryId);
+//			resultSet = statement.executeQuery();
+//			while (resultSet.next()) {
+//			newModel newmodel = new newModel();
+//			newmodel.setTitle(resultSet.getString("title"));
+//			newmodel.setId(resultSet.getLong("id"));
+//			result.add(newmodel);
+//			}
+//			return result;
+//			} catch (SQLException e) {
+//				return null;
+//			} finally {
+//				try {
+//				if (connection != null) {
+//					connection.close();
+//				}
+//				if (statement  != null) {
+//					statement.close();
+//				}
+//				if (resultSet != null) {
+//					resultSet.close();
+//				}
+//			} catch (Exception e) {
+//				return null;
+//			}	
+//		}
+//	}
+//		return null;
+		return query(sql, new newMapper(), categoryId);
+	}
+
+	@Override
+	public Long save(newModel news) {
+		
+//		String sql = "insert into news (title, content, categoryid) values(?, ? , ?)";
+		StringBuilder sql = new StringBuilder("insert into news (title, content, ");
+		sql.append("thumbnail, shortdescription, categoryid, createddate, createdby)");
+		sql.append("values(?, ? , ?, ?, ?, ?, ?)");
+		return insert(sql.toString(), news.getTitle(), news.getContent(), news.getThumbnail(), news.getShortDescription(), news.getCategoryId(), news.getCreatedDate(), news.getCreatedBy());
+//		ResultSet resultSet = null;
+//		Long id = null;
+//		Connection connection = null;
+//		PreparedStatement statement = null;
+//		try {
+//			String sql = "insert into news (title, content, categoryid) values(?, ? , ?)";
+//			connection = getConnection();
+//			connection.setAutoCommit(false);
+//			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//			statement.setString(1, news.getTitle());
+//			statement.setString(2, news.getContent());
+//			statement.setLong(3, news.getCategoryId());
+//			statement.executeUpdate(); 
+//			resultSet = statement.getGeneratedKeys();
+//			if (resultSet.next()) {
+//				id = resultSet.getLong(1);
+//			}
+//			connection.commit(); // khi commit moi luu xuong data base
+//			return id;
+//		} catch (SQLException e) {
+//			if (connection != null) {
+//				try {
+//					connection.rollback();
+//				} catch (SQLException e2) {
+//					e2.printStackTrace();
+//				}
+//			}
+//			return null;
+//		} finally {
+//			try { 
+//				if (connection != null) {
+//					connection.close();
+//				}
+//				if (statement != null) {
+//					statement.close();
+//				}
+//				if (resultSet != null) {
+//					resultSet.close();
+//				}
+//			} catch (SQLException e) {
+//				return null;
+//			}
+//		}
+	}
+
+	@Override
+	public newModel findOne(Long id) {
+		String sql = "SELECT * FROM news WHERE id = ?";
+		List<newModel> news = query(sql, new newMapper(), id);
+		return news.isEmpty() ? null : news.get(0);
+	}
+
+	@Override
+	public void update(newModel updateNew) {
+		// TODO Auto-generated method stub
+		StringBuffer sql = new StringBuffer("UPDATE news SET title = ?, thumbnail = ?, ");
+		sql.append("shortdescription = ?, content = ?, categoryid = ?, ");
+		sql.append("createddate = ?, createdby = ?, modifieddate = ?, modifiedby = ? WHERE id = ?");
+
+		update(sql.toString(), updateNew.getTitle(), updateNew.getThumbnail(), updateNew.getShortDescription(),
+				updateNew.getContent(), updateNew.getCategoryId(), updateNew.getCreatedDate(), updateNew.getCreatedBy(),
+				updateNew.getModifiedDate(), updateNew.getModifiedBy(), updateNew.getId());
+
+	}
+
+	@Override
+	public void delete(long id) {
+		String sql = "DELETE FROM news WHERE id = ?";
+		update(sql, id);
+	}
+
+	@Override
+	public List<newModel> findAll(Pageble pageble) {
+		StringBuilder sql = new StringBuilder("SELECT * FROM news");
+		if (pageble.getSorter() !=  null) {
+			sql.append(" ORDER BY "+pageble.getSorter().getSortName()+" "+pageble.getSorter().getSortBy()+"");
+		}
+		if (pageble.getOffset() != null && pageble.getLimit() != null) {
+			sql.append(" LIMIT "+pageble.getOffset()+", "+pageble.getLimit()+"");
+		}
+		return query(sql.toString(),new newMapper());
+	}
+
+	@Override
+	public int getTotalItem() {
+		String sql = "select count(*) from news";
+		return count(sql);
+	}
+
+}

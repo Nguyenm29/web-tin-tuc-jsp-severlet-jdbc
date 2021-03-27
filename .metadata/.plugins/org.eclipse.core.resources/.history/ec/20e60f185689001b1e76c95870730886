@@ -1,0 +1,5 @@
+package com.laptrinhjavaweb.constain;
+
+public class systemconstain {
+	public static final String MODEL = "model";
+}

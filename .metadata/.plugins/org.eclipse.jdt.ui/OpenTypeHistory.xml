@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=new-jdbc-3-3-2020/C:\/eclipse\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.1.v20201027-0507\/jre\/lib\/jrt-fs.jar`java.xml=/maven.pomderived=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/15\/docs\/api\/=/&lt;com.sun.org.apache.bcel.internal.generic(NEW.class[NEW" modifiers="33" timestamp="1603750186000"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.mapper{newMapper.java[newMapper" modifiers="1" timestamp="1616197624418"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao{genericDAO.java[genericDAO" modifiers="513" timestamp="1616477888460"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao{INewDAO.java[INewDAO" modifiers="513" timestamp="1616602125216"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.paging{PageRequest.java[PageRequest" modifiers="1" timestamp="1616604278508"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/C:\/eclipse\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_15.0.1.v20201027-0507\/jre\/lib\/jrt-fs.jar`java.xml=/maven.pomderived=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/15\/docs\/api\/=/&lt;com.sun.org.apache.xalan.internal.xsltc.compiler(Sort.class[Sort" modifiers="48" timestamp="1603750186000"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao{IUserDAO.java[IUserDAO" modifiers="513" timestamp="1616682457124"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao.impl{UserDAO.java[UserDAO" modifiers="1" timestamp="1616687869979"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.service{IUserService.java[IUserService" modifiers="513" timestamp="1616683619109"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.model{userModel.java[userModel" modifiers="1" timestamp="1616684110260"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao.impl{abstractDAO.java[abstractDAO" modifiers="1" timestamp="1616741573324"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.ultils{SessionUtil.java[SessionUtil" modifiers="1" timestamp="1616742498700"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.mapper{UserMapper.java[UserMapper" modifiers="1" timestamp="1616687869938"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.controller.web{HomeController.java[HomeController" modifiers="1" timestamp="1616746477183"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.model{newModel.java[newModel" modifiers="1" timestamp="1616809720462"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.constain{systemConstain.java[systemConstain" modifiers="1" timestamp="1616808285803"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.model{abstractModel.java[abstractModel" modifiers="1" timestamp="1616808208059"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.service{INewService.java[INewService" modifiers="513" timestamp="1616808415302"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.service.impl{categoryService.java[categoryService" modifiers="1" timestamp="1616682100662"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao{ICategoryDAO.java[ICategoryDAO" modifiers="513" timestamp="1616826170307"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao.impl{categoryDAO.java[categoryDAO" modifiers="1" timestamp="1616826167456"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.service.impl{newService.java[newService" modifiers="1" timestamp="1616826164934"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.dao.impl{newDAO.java[newDAO" modifiers="1" timestamp="1616814059698"/>
+    <typeInfo handle="=new-jdbc-3-3-2020/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.laptrinhjavaweb.controller.admin.api{newAPI.java[newAPI" modifiers="1" timestamp="1616791431417"/>
+</typeInfoHistroy>

@@ -1,0 +1,7 @@
+package com.laptrinhjavaweb.mapper;
+
+import com.laptrinhjavaweb.model.userModel;
+
+public class UserMapper implements rowMapper<userModel> {
+
+}

@@ -1,5 +1,0 @@
-package com.laptrinhjavaweb.dao;
-
-public interface genericDAO<T> {
-	<T> List<T> query(String sql, T, Object... parameters);
-}

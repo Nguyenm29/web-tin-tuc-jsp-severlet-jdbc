@@ -1,0 +1,9 @@
+package com.laptrinhjavaweb.dao.impl;
+
+import com.laptrinhjavaweb.dao.IUserDAO;
+import com.laptrinhjavaweb.model.userModel;
+
+public class UserDAO extends abstractDAO<userModel> implements IUserDAO {
+	
+
+}

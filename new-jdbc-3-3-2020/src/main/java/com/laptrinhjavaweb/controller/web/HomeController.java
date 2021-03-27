@@ -1,6 +1,7 @@
 package com.laptrinhjavaweb.controller.web;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -10,37 +11,61 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.laptrinhjavaweb.model.newModel;
-import com.laptrinhjavaweb.service.INewService;
+import com.laptrinhjavaweb.model.userModel;
+import com.laptrinhjavaweb.service.IUserService;
 import com.laptrinhjavaweb.service.iCategoryService;
-@WebServlet(urlPatterns =  {"/trang-chu"})
-public class HomeController extends HttpServlet {						
-//	@Inject
-//	private iCategoryService categoryService;
-	@Inject
-//	private INewService newService;
-	private static final long serialVersionUID = 2686801510274002166L;
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-////		// TODO Auto-generated method stub
-////		String title = "bai viet 4";
-////		String content = "bai viet 4";
-////		Long categoryId = 1L;
-////		newModel new_model = new newModel();
-////		new_model.setTitle(title);
-////		new_model.setContent(content);
-////		new_model.setCategoryId(categoryId);
-////		newService.save(new_model);
-//		Long id = 1L;
-//		req.setAttribute("new", newService.findByCategoryId(id));	
-//		req.setAttribute("category", categoryService.findAll());
-		RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
-		rd.forward(req, resp);
-	}
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
-	}
+import com.laptrinhjavaweb.ultils.FormUlti;
+import com.laptrinhjavaweb.ultils.SessionUtil;
 
+@WebServlet(urlPatterns = { "/trang-chu", "/dang-nhap", "/thoat" })
+public class HomeController extends HttpServlet {
+
+	private static final long serialVersionUID = 2686801510274002166L;
+	@Inject
+	iCategoryService CategoryService;
+	@Inject
+	IUserService UserService;
+	@Inject
+	iCategoryService categoryService;
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("message");
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		if (action != null && action.equals("login")) {
+			String alert = request.getParameter("alert");
+			String message = request.getParameter("message");
+			if (message != null && alert != null) {
+				request.setAttribute("message", resourceBundle.getString(message));
+				request.setAttribute("alert", alert);
+			}
+			RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
+			rd.forward(request, response);
+		} else if (action != null && action.equals("logout")) {
+			SessionUtil.getInstance().removeValue(request, "USERMODEL");
+			response.sendRedirect(request.getContextPath()+"/trang-chu");
+		} else {
+			request.setAttribute("categories", categoryService.findAll());
+			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
+			rd.forward(request, response);
+		}
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		if (action != null && action.equals("login")) {
+			userModel model = FormUlti.toModel(userModel.class, request);
+			model = UserService.findByUserNameAndPasswordAndStatus(model.getUserName(), model.getPassword(), 1);
+			if (model != null) {
+				SessionUtil.getInstance().putValue(request, "USERMODEL", model);
+				if (model.getRole().getCode().equals("USER")) {
+					response.sendRedirect(request.getContextPath()+"/trang-chu");
+				} else if (model.getRole().getCode().equals("ADMIN")) {
+					response.sendRedirect(request.getContextPath()+"/admin-home");
+				}
+			} else {
+				response.sendRedirect(request.getContextPath()+"/dang-nhap?action=login&message=username_password_invalid&alert=danger");
+			}
+		}
+	}
 }

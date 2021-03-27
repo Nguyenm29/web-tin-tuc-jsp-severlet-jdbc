@@ -9,20 +9,25 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.laptrinhjavaweb.dao.genericDAO;
 import com.laptrinhjavaweb.mapper.rowMapper;
-import com.opensymphony.module.sitemesh.html.tokenizer.Parser.ReusableToken;
 
 public class abstractDAO<T> implements genericDAO<T> {
+	ResourceBundle resourceBundle = ResourceBundle.getBundle("db");
 	public Connection getConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/newseverlet", "root", "19691969");
-//            return connection;
-			String url = "jdbc:mysql://localhost:3306/newseverlet";
-			String user = "root";
-			String password = "19691969";
+//			Class.forName("com.mysql.jdbc.Driver");
+////            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/newseverlet", "root", "19691969");
+////            return connection;
+//			String url = "jdbc:mysql://localhost:3306/newseverlet";
+//			String user = "root";
+//			String password = "19691969";
+			Class.forName(resourceBundle.getString("driverName"));
+			String url = resourceBundle.getString("url");
+			String user = resourceBundle.getString("user");
+			String password = resourceBundle.getString("password");
 			return DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException | SQLException e) {
 			return null;
@@ -36,10 +41,10 @@ public class abstractDAO<T> implements genericDAO<T> {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = getConnection();
-			statement = connection.prepareStatement(sql);
-			setParameter(statement, parameters);
-			resultSet = statement.executeQuery();
+			connection = getConnection(); // lay connection
+			statement = connection.prepareStatement(sql); // truyen cau sql va statement
+			setParameter(statement, parameters); // set gia trị cho câu sql
+			resultSet = statement.executeQuery(); // thự thi câu sql
 			while (resultSet.next()) {
 				result.add(rowMapper.mapRow(resultSet));
 			}
@@ -77,7 +82,7 @@ public class abstractDAO<T> implements genericDAO<T> {
 					statement.setInt(index, (Integer)parameter);
 				} else if(parameter instanceof Timestamp) {
 					statement.setTimestamp(index, (Timestamp) parameter);
-				}
+				} 
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -161,5 +166,41 @@ public class abstractDAO<T> implements genericDAO<T> {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public int count(String sql, Object... parameters) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		int count = 0;
+		try {
+			connection = getConnection();
+			statement = connection.prepareStatement(sql);
+			setParameter(statement, parameters);
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				count = resultSet.getInt(1);
+			}
+			return count;
+			
+		} catch (SQLException e) {
+			return 0;
+		} finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}
+				if (statement != null) {
+					statement.close();
+				}
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				
+			} catch (SQLException e2) {
+				return 0;
+			}
+		}
 	}
 }

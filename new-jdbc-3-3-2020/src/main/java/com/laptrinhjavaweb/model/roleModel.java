@@ -1,7 +1,7 @@
 package com.laptrinhjavaweb.model;
 
 
-public class roleModel extends abstractModel {
+public class roleModel extends abstractModel<roleModel> {
 	private String code;
 	private String name;
 	public String getCode() {

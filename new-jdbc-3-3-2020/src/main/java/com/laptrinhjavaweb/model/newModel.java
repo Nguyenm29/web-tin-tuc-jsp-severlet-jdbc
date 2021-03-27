@@ -1,12 +1,12 @@
 package com.laptrinhjavaweb.model;
 
-public class newModel extends abstractModel {
+public class newModel extends abstractModel<newModel> {
 	private String title;
 	private String thumbnail;
 	private String shortDescription;
 	private String content;
 	private Long categoryId;
-
+	private String categoryCode;		 	
 	public String getTitle() {
 		return title;
 	}
@@ -45,6 +45,14 @@ public class newModel extends abstractModel {
 
 	public void setCategoryId(Long categoryId) {
 		this.categoryId = categoryId;
+	}
+
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 
 }

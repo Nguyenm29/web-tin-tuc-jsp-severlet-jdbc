@@ -1,11 +1,13 @@
 package com.laptrinhjavaweb.model;
 
-public class userModel extends abstractModel {
+public class userModel extends abstractModel<userModel> {
 	private String userName;
 	private String fullName;
 	private String password;
 	private int status;
 	private Long roleId;
+	private Long[] Ids;
+	private roleModel role;
 	public String getUserName() {
 		return userName;
 	}
@@ -44,6 +46,22 @@ public class userModel extends abstractModel {
 
 	public void setRoleId(Long roleId) {
 		this.roleId = roleId;
+	}
+
+	public Long[] getIds() {
+		return Ids;
+	}
+
+	public void setIds(Long[] ids) {
+		Ids = ids;
+	}
+
+	public roleModel getRole() {
+		return role;
+	}
+
+	public void setRole(roleModel role) {
+		this.role = role;
 	}
 
 }

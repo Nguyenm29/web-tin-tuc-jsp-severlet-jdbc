@@ -1,0 +1,20 @@
+package com.laptrinhjavaweb.dao.impl;
+
+import java.util.List;
+
+import com.laptrinhjavaweb.dao.IUserDAO;
+import com.laptrinhjavaweb.mapper.newMapper;
+import com.laptrinhjavaweb.model.newModel;
+import com.laptrinhjavaweb.model.userModel;
+
+public class UserDAO extends abstractDAO<userModel> implements IUserDAO {
+
+	@Override
+	public userModel findByUserNameAndPasswordAndStatus(String userName, String password, Integer status) {
+		String sql = "select * from user where username = ? and password = ? and status = ?";
+		List<newModel> news = query(sql, new newMapper(), userName, password, status);
+		return null;
+	}
+	
+
+}

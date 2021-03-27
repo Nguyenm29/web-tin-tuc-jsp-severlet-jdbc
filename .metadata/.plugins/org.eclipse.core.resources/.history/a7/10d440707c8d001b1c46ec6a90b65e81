@@ -1,0 +1,13 @@
+package com.laptrinhjavaweb.ultils;
+
+public class SessionUtil {
+	public Object getValue() {
+		return null;
+	}
+	public void putValue() {
+		
+	}
+	public void getValue() {
+		
+	}
+}

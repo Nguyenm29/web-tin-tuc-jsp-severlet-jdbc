@@ -1,6 +1,6 @@
 package com.laptrinhjavaweb.model;
 
-public class commentModel extends abstractModel {
+public class commentModel extends abstractModel<commentModel> {
 	private String content;
 	private Long userId;
 	private Long newId;

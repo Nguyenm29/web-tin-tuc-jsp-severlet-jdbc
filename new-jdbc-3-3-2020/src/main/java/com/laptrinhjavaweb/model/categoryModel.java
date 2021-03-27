@@ -1,6 +1,6 @@
 package com.laptrinhjavaweb.model;
 
-public class categoryModel extends abstractModel {
+public class categoryModel extends abstractModel<categoryModel> {
 	private Long id;
 	private String name;
 	private String code;
